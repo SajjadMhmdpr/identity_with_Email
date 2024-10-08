@@ -1,0 +1,55 @@
+﻿@model List<identity_with_Email.ViewModels.UserVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                username
+            </th>
+            <th>
+                phone
+            </th>
+            <th>
+                email
+            </th>
+            <th>
+                operation
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    @item.Phone
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
